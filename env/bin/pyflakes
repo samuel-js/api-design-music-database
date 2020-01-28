@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/samuel/Insync/samuel.jimenez@sanabria.se/Google Drive/programming/_udacity2020/FSND2020/2. SQL and Data Modeling/8. Project Fyyur/starter_code/env/bin/python3.7" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from pyflakes.api import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
