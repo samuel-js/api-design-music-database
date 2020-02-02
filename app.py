@@ -1,5 +1,4 @@
 # Code references:
-# GitHib Users: Ivan Canales, Nicholas Pretorius, Ovie Mudi
 # User CrazyGuitar: SQLAlchemy https://github.com/crazyguitar/pysheeet/blob/master/docs/notes/python-sqlalchemy.rst#set-a-database-url
 # Constraints: https://docs.sqlalchemy.org/en/13/core/constraints.html
 # Multiple Constraints: https://gist.github.com/asyd/3cff61ed09eabe187d3fbec2c8a3ee39
