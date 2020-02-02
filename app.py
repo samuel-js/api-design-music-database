@@ -1,8 +1,11 @@
 # Code references:
 # GitHib Users: Ivan Canales, Nicholas Pretorius, Ovie Mudi
+# User CrazyGuitar: SQLAlchemy https://github.com/crazyguitar/pysheeet/blob/master/docs/notes/python-sqlalchemy.rst#set-a-database-url
 # Constraints: https://docs.sqlalchemy.org/en/13/core/constraints.html
 # Multiple Constraints: https://gist.github.com/asyd/3cff61ed09eabe187d3fbec2c8a3ee39
 # Flash Messages not displayed: https://stackoverflow.com/questions/49012562/flask-one-flash-message-not-getting-displayed
+# Remove Password: https://dba.stackexchange.com/questions/83164/remove-password-requirement-for-user-postgres
+# Split Flask Models: https://stackoverflow.com/questions/34281873/how-do-i-split-flask-models-out-of-app-py-without-passing-db-object-all-over
 
 #----------------------------------------------------------------------------#
 # Imports
