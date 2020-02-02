@@ -503,13 +503,12 @@ def create_artist_submission():
 def shows():
   data = []
   show_list = Show.query.all()
-  #show_list = db.session.query(Show, Venue, Artist)
 
   for show in show_list:
     data.append({
       "venue_id": show.venue_id,
       "venue_name": Venue.query.filter_by(id=show.venue_id).first().name,
-      "artist_id": show.artist_id,
+      "artist_id": show.artist_id, 
       "artist_name": Artist.query.filter_by(id=show.artist_id).first().name,
       "artist_image_link": show.artist.image_link, 
       'start_time': show.start_time.strftime('%Y-%m-%d, %H:%M:%S')
