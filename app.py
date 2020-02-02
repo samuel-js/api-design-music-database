@@ -26,11 +26,11 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# TODO: connect to a local postgresql database
-# DONE in config.py
-
 #----------------------------------------------------------------------------#
 # Models.
+#----------------------------------------------------------------------------#
+
+# class Venue
 #----------------------------------------------------------------------------#
 
 class Venue(db.Model):
@@ -44,17 +44,18 @@ class Venue(db.Model):
     phone = db.Column(db.String(120))
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
-
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
-
     genres = db.Column("genres", db.ARRAY(db.String()), nullable=False)
     website = db.Column(db.String(500))
     seeking_talent = db.Column(db.Boolean, default=False)
     seeking_description = db.Column(db.String(120))
+
     shows = db.relationship('Show', backref='venue', lazy=True)
 
     def __repr__(self):
-        return f'<Venue {self.id} {self.name}>'
+        return f'<Venue {self.id} {self.name} {self.image_link}>'
+
+# class Artist
+#----------------------------------------------------------------------------#
 
 class Artist(db.Model):
     __tablename__ = 'Artist'
@@ -64,18 +65,20 @@ class Artist(db.Model):
     city = db.Column(db.String(120))
     state = db.Column(db.String(120))
     phone = db.Column(db.String(120))
-    genres = db.Column(db.String(120)) # This column could be setup as as a FK from the "Genre" table.
+    genres = db.Column("genres", db.ARRAY(db.String()), nullable=False)
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
     website = db.Column(db.String(500))
     seeking_venue = db.Column(db.Boolean, default=False)
     seeking_description = db.Column(db.String(120))
+
     shows = db.relationship('Show', backref='artist', lazy=True)
 
     def __repr__(self):
-        return f'<Artist {self.id} {self.name}>'
+        return f'<Artist {self.id} {self.name} {self.image_link}>'
 
-# TODO Implement Show and Artist models, and complete all model relationships and properties, as a database migration.
+# class Show
+#----------------------------------------------------------------------------#
 
 class Show(db.Model):
     __tablename__ = 'Show'
@@ -86,18 +89,15 @@ class Show(db.Model):
     start_time = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
-        return f'<Show {self.id}, Artist {self.artist_id}, Venue {self.venue_id}>'
+        return f'<Show {self.id}, Artist {self.artist_id}, Artist {self.image_link}, Venue {self.venue_id}>'
 
-# This class is actually not needed bay coud be implemented.
+# class Genre (Didn't use it at the end)
+#----------------------------------------------------------------------------#
+''' class Genre(db.Model):
+    __tablename__ = 'genre'
 
-# class Genre(db.Model):
-#   __tablename__ = 'Genre'
-
-#   id = db.Column(db.Integer, primary_key=True)
-#   name = db.Column(db.String(100), nullable=False, unique=True)
-
-#   def __repr__(self):
-#     return self.name
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String) '''
 
 #----------------------------------------------------------------------------#
 # Filters.
@@ -113,7 +113,6 @@ def format_datetime(value, format='medium'):
 
 app.jinja_env.filters['datetime'] = format_datetime
 
-
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
@@ -122,16 +121,14 @@ app.jinja_env.filters['datetime'] = format_datetime
 def index():
   return render_template('pages/home.html')
 
-
 #  Venues
-#  ----------------------------------------------------------------
+#----------------------------------------------------------------------------#
 # Code ref. Nicholas Pretorius
 
 @app.route('/venues')
 def venues():
   venue_list = Venue.query.all()
 
-  # create a dictionary for sorting venues according to city and state.
   venues_dict = {}
 
   for venue in venue_list:
@@ -155,8 +152,8 @@ def venues():
 
   return render_template('pages/venues.html', areas=data);
 
-#  Venues > Search
-#  ----------------------------------------------------------------
+#  Venue Search
+#----------------------------------------------------------------------------#
 # Code ref. Ovie Mudi
 
 @app.route('/venues/search', methods=['POST'])
@@ -179,8 +176,8 @@ def search_venues():
 
   return render_template('pages/search_venues.html', results=response, search_term=request.form.get('search_term', ''))
 
-#  Show Venue
-#  ----------------------------------------------------------------
+#  Venue Show
+#----------------------------------------------------------------------------#
 
 @app.route('/venues/<int:venue_id>')
 def show_venue(venue_id):
@@ -206,7 +203,6 @@ def show_venue(venue_id):
     else:
       upcoming_shows.append(show_attributes)
 
-
   venue_dict = {
     "id": venue.id,
     "name": venue.name,
@@ -228,9 +224,8 @@ def show_venue(venue_id):
 
   return render_template('pages/show_venue.html', venue=venue_dict)
 
-
-#  Create Venue
-#  ----------------------------------------------------------------
+#  Venue Create
+#----------------------------------------------------------------------------#
 
 @app.route('/venues/create', methods=['GET'])
 def create_venue_form():
@@ -253,7 +248,7 @@ def create_venue_submission():
   try:
     db.session.add(new_venue)
     db.session.commit()
-    flash('Venue ' + request.form['name'] + ' was successfully listed!')
+    flash('The venue ' + request.form['name'] + ' was successfully listed!')
 
   except:
     flash('An error occurred. Venue ' + new_venue.name + ' could not be listed.', category='error')
@@ -264,37 +259,30 @@ def create_venue_submission():
     db.session.close()
     return redirect(url_for('venues'))  
 
-#  Delete Venue
-#  ----------------------------------------------------------------
+#  Venue Delete
+#----------------------------------------------------------------------------#
 
 @app.route('/venues/<venue_id>', methods=['DELETE'])
 def delete_venue(venue_id):
-  status = False
+  #status = False
   try:
     venue = Venue.query.get(venue_id)
     db.session.delete(venue)
     db.session.commit()
-    status = True
-    flash('Venue successfully deleted!')
+    #status = True
+    flash('The venue ' + request.form['name'] + ' was successfully deleted!')
 
   except:
-    print(exc_info())
+    flash('An error occurred. Venue ' + new_venue.name + ' could not be deleted.', category='error')
+    print('exc_info()', exc_info())
     db.session.rollback()
-    status = False
-    flash('An error occurred deleting the venue', category='error')
-
+  
   finally:
     db.session.close()
-  
-  return jsonify({
-    'success': status
-    })
-
-  return None
+    return redirect(url_for('/')) 
 
 #  Artists
-#  ----------------------------------------------------------------
-
+#----------------------------------------------------------------------------#
 @app.route('/artists')
 
 def artists():
@@ -309,8 +297,8 @@ def artists():
 
   return render_template('pages/artists.html', artists=data)
 
-#  Artists > Search
-#  ----------------------------------------------------------------
+#  Artists Search
+#----------------------------------------------------------------------------#
 
 @app.route('/artists/search', methods=['POST'])
 def search_artists():
@@ -330,7 +318,9 @@ def search_artists():
 
   return render_template('pages/search_artists.html', results=response, search_term=request.form.get('search_term', ''))
 
-# Show Artist page
+# Artist Page Show
+#----------------------------------------------------------------------------#
+
 @app.route('/artists/<int:artist_id>')
 def show_artist(artist_id):
       
@@ -378,8 +368,8 @@ def show_artist(artist_id):
 
   return render_template('pages/show_artist.html', artist=artist_dict)
 
-#  Update
-#  ----------------------------------------------------------------
+# Artist Edit
+#----------------------------------------------------------------------------#
 # Code ref. Tune Dev
 
 @app.route('/artists/<int:artist_id>/edit', methods=['GET'])
@@ -410,7 +400,7 @@ def edit_artist_submission(artist_id):
       artist.image_link = request.form['image_link']
 
       db.session.commit()
-      flash('Artist ' + request.form['name'] + ' was successfully updated!')
+      flash('The artist ' + request.form['name'] + ' was successfully updated!')
   except:
       flash('An error occurred. Artist ' +
             request.form['name'] + ' could not be updated')
@@ -419,6 +409,9 @@ def edit_artist_submission(artist_id):
   finally:
       db.session.close()
   return redirect(url_for('show_artist', artist_id=artist_id))  
+
+# Venue Edit
+#----------------------------------------------------------------------------#
 
 @app.route('/venues/<int:venue_id>/edit', methods=['GET'])
 def edit_venue(venue_id):
@@ -448,7 +441,7 @@ def edit_venue_submission(venue_id):
     venue.image_link = request.form['image_link']
 
     db.session.commit()
-    flash('Venue ' + request.form['name'] + ' was successfully updated!')
+    flash('The venue ' + request.form['name'] + ' was successfully updated!')
   except:
       flash('An error occurred. Venue ' +
             request.form['name'] + ' could not be updated')
@@ -459,8 +452,8 @@ def edit_venue_submission(venue_id):
 
   return redirect(url_for('show_venue', venue_id=venue_id))
 
-#  Create Artist
-#  ----------------------------------------------------------------
+#  Artist Create
+#----------------------------------------------------------------------------#
 
 @app.route('/artists/create', methods=['GET'])
 def create_artist_form():
@@ -474,7 +467,7 @@ def create_artist_submission():
       city=request.form['city'],
       state=request.form['state'],
       phone=request.form['phone'],
-      genres=request.form.getlist['genres'],
+      genres=request.form['genres'],
       facebook_link=request.form['facebook_link'],
       image_link=request.form['image_link']
   )
@@ -482,10 +475,10 @@ def create_artist_submission():
   try:
     db.session.add(new_artist)
     db.session.commit()
-    flash('Artist ' + request.form['name'] + ' was successfully listed!')
+    flash('The artist ' + request.form['name'] + ' was successfully listed!')
 
   except:
-    flash('An error occurred. Artist ' + new_artist.name + ' could not be listed.', category='error')
+    flash('An error occurred. The artist ' + new_artist.name + ' could not be listed.', category='error')
     print('exc_info(): ', exc_info())
     db.session.rollback()
 
@@ -495,12 +488,13 @@ def create_artist_submission():
   
 
 #  Shows
-#  ----------------------------------------------------------------
+#----------------------------------------------------------------------------#
 
 @app.route('/shows')
 def shows():
   data = []
   show_list = Show.query.all()
+  #show_list = db.session.query(Show, Venue, Artist)
 
   for show in show_list:
     data.append({
@@ -508,11 +502,14 @@ def shows():
       "venue_name": Venue.query.filter_by(id=show.venue_id).first().name,
       "artist_id": show.artist_id,
       "artist_name": Artist.query.filter_by(id=show.artist_id).first().name,
-      #"start_time": format_datetime(str(show.start_time)) #can't get this to work
+      "artist_image_link": show.artist.image_link,
       'start_time': show.start_time.strftime('%Y-%m-%d, %H:%M:%S')
     })
 
   return render_template('pages/shows.html', shows=data)
+
+#  Shows Create
+#----------------------------------------------------------------------------#
 
 @app.route('/shows/create')
 def create_shows():
@@ -542,6 +539,10 @@ def create_show_submission():
     db.session.close()
     return redirect(url_for('shows'))
 
+#----------------------------------------------------------------------------#
+# Errors
+#----------------------------------------------------------------------------#
+
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('errors/404.html'), 404
@@ -549,7 +550,6 @@ def not_found_error(error):
 @app.errorhandler(500)
 def server_error(error):
     return render_template('errors/500.html'), 500
-
 
 if not app.debug:
     file_handler = FileHandler('error.log')
