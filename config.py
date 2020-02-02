@@ -14,5 +14,5 @@ DEBUG = True
 # SQLALCHEMY_DATABASE_URI = 'postgres://postgres@localhost:5432/fyyur'
 
 #Moved database to Cloud
-SQLALCHEMY_DATABASE_URI = 'postgres://postgres@35.198.158.106:5432/fyyur'
+SQLALCHEMY_DATABASE_URI = 'postgres://postgres:meIjmassjs@35.198.158.106:5432/fyyur'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
