@@ -1,3 +1,9 @@
+# Code references:
+# GitHib Users: Ivan Canales, Nicholas Pretorius, Ovie Mudi
+# Constraints: https://docs.sqlalchemy.org/en/13/core/constraints.html
+# Multiple Constraints: https://gist.github.com/asyd/3cff61ed09eabe187d3fbec2c8a3ee39
+# Flash Messages not displayed: https://stackoverflow.com/questions/49012562/flask-one-flash-message-not-getting-displayed
+
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
@@ -487,8 +493,9 @@ def create_artist_submission():
     return redirect(url_for('artists'))
   
 
-#  Shows
+# Shows
 #----------------------------------------------------------------------------#
+# Code ref. Ivan Canales
 
 @app.route('/shows')
 def shows():
@@ -502,7 +509,7 @@ def shows():
       "venue_name": Venue.query.filter_by(id=show.venue_id).first().name,
       "artist_id": show.artist_id,
       "artist_name": Artist.query.filter_by(id=show.artist_id).first().name,
-      "artist_image_link": show.artist.image_link,
+      "artist_image_link": show.artist.image_link, 
       'start_time': show.start_time.strftime('%Y-%m-%d, %H:%M:%S')
     })
 
