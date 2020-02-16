@@ -84,7 +84,7 @@ class Artist(db.Model):
     shows = db.relationship('Show', backref='artist', lazy=True)
 
     def __repr__(self):
-        return f'<Artist {self.id} {self.name} {self.image_link}>'
+      return f'<Artist {self.id} {self.name} {self.image_link}>'
 
 # class Show
 #----------------------------------------------------------------------------#
@@ -98,7 +98,7 @@ class Show(db.Model):
     start_time = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
-        return f'<Show {self.id}, Artist {self.artist_id}, Artist {self.image_link}, Venue {self.venue_id}>'
+      return f'<Show {self.id}, Artist {self.artist_id}, Artist {self.image_link}, Venue {self.venue_id}>'
 
 
 #----------------------------------------------------------------------------#
@@ -108,9 +108,9 @@ class Show(db.Model):
 def format_datetime(value, format='medium'):
   date = dateutil.parser.parse(value)
   if format == 'full':
-      format="EEEE MMMM, d, y 'at' h:mma"
+    format="EEEE MMMM, d, y 'at' h:mma"
   elif format == 'medium':
-      format="EE MM, dd, y h:mma"
+    format="EE MM, dd, y h:mma"
   return babel.dates.format_datetime(date, format)
 
 app.jinja_env.filters['datetime'] = format_datetime
@@ -137,12 +137,12 @@ def venues():
     key = f'{venue.city}, {venue.state}'
 
     venues_dict.setdefault(key, []).append({
-        'id': venue.id,
-        'name': venue.name,
-        'num_upcoming_shows': len(venue.shows),
-        'city': venue.city,
-        'state': venue.state
-      })
+      'id': venue.id,
+      'name': venue.name,
+      'num_upcoming_shows': len(venue.shows),
+      'city': venue.city,
+      'state': venue.state
+    })
 
   data = []
   for value in venues_dict.values():
@@ -167,7 +167,7 @@ def search_venues():
   response={
     "count": len(venue_search_result),
     "data": []   
-    }
+  }
 
   for result in venue_search_result:
       response["data"].append({
@@ -393,25 +393,26 @@ def edit_artist(artist_id):
 @app.route('/artists/<int:artist_id>/edit', methods=['POST'])
 def edit_artist_submission(artist_id):
   artist = Artist.query.filter_by(id=artist_id).first()
-  try:
-      artist.name = request.form['name']
-      artist.city = request.form['city']
-      artist.state = request.form['state']
-      artist.phone = request.form['phone']
-      artist.genres = request.form.getlist('genres')
-      artist.facebook_link = request.form['facebook_link']
-      artist.website = request.form['website']
-      artist.image_link = request.form['image_link']
 
-      db.session.commit()
-      flash('The artist ' + request.form['name'] + ' was successfully updated!')
+  try:
+    artist.name = request.form['name']
+    artist.city = request.form['city']
+    artist.state = request.form['state']
+    artist.phone = request.form['phone']
+    artist.genres = request.form.getlist('genres')
+    artist.facebook_link = request.form['facebook_link']
+    artist.website = request.form['website']
+    artist.image_link = request.form['image_link']
+
+    db.session.commit()
+    flash('The artist ' + request.form['name'] + ' was successfully updated!')
   except:
-      flash('An error occurred. Artist ' +
-            request.form['name'] + ' could not be updated')
-      db.session.rollback()
-      print(sys.exc_info())
+    flash('An error occurred. Artist ' +
+          request.form['name'] + ' could not be updated')
+    db.session.rollback()
+    print(sys.exc_info())
   finally:
-      db.session.close()
+    db.session.close()
   return redirect(url_for('show_artist', artist_id=artist_id))  
 
 # Venue Edit
@@ -435,6 +436,7 @@ def edit_venue(venue_id):
 @app.route('/venues/<int:venue_id>/edit', methods=['POST'])
 def edit_venue_submission(venue_id):
   venue = Venue.query.filter_by(id=venue_id).first()
+
   try:
     venue.name = request.form['name']
     venue.city = request.form['city']
@@ -447,12 +449,12 @@ def edit_venue_submission(venue_id):
     db.session.commit()
     flash('The venue ' + request.form['name'] + ' was successfully updated!')
   except:
-      flash('An error occurred. Venue ' +
-            request.form['name'] + ' could not be updated')
-      db.session.rollback()
-      print(sys.exc_info())
+    flash('An error occurred. Venue ' +
+          request.form['name'] + ' could not be updated')
+    db.session.rollback()
+    print(sys.exc_info())
   finally:
-      db.session.close()
+    db.session.close()
 
   return redirect(url_for('show_venue', venue_id=venue_id))
 
@@ -467,14 +469,14 @@ def create_artist_form():
 @app.route('/artists/create', methods=['POST'])
 def create_artist_submission():
   new_artist = Artist(
-      name=request.form['name'],
-      city=request.form['city'],
-      state=request.form['state'],
-      phone=request.form['phone'],
-      genres=request.form['genres'],
-      facebook_link=request.form['facebook_link'],
-      website=request.form['website'],
-      image_link=request.form['image_link']
+    name=request.form['name'],
+    city=request.form['city'],
+    state=request.form['state'],
+    phone=request.form['phone'],
+    genres=request.form['genres'],
+    facebook_link=request.form['facebook_link'],
+    website=request.form['website'],
+    image_link=request.form['image_link']
   )
 
   try:
@@ -550,21 +552,21 @@ def create_show_submission():
 
 @app.errorhandler(404)
 def not_found_error(error):
-    return render_template('errors/404.html'), 404
+  return render_template('errors/404.html'), 404
 
 @app.errorhandler(500)
 def server_error(error):
-    return render_template('errors/500.html'), 500
+  return render_template('errors/500.html'), 500
 
 if not app.debug:
-    file_handler = FileHandler('error.log')
-    file_handler.setFormatter(
-        Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
-    )
-    app.logger.setLevel(logging.INFO)
-    file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler)
-    app.logger.info('errors')
+  file_handler = FileHandler('error.log')
+  file_handler.setFormatter(
+      Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+  )
+  app.logger.setLevel(logging.INFO)
+  file_handler.setLevel(logging.INFO)
+  app.logger.addHandler(file_handler)
+  app.logger.info('errors')
 
 #----------------------------------------------------------------------------#
 # Launch.
