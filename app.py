@@ -1,3 +1,4 @@
+
 # Code references:
 # User CrazyGuitar: SQLAlchemy https://github.com/crazyguitar/pysheeet/blob/master/docs/notes/python-sqlalchemy.rst#set-a-database-url
 # Constraints: https://docs.sqlalchemy.org/en/13/core/constraints.html
@@ -52,7 +53,7 @@ class Venue(db.Model):
     phone = db.Column(db.String(120))
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
-    genres = db.Column("genres", db.ARRAY(db.String()), nullable=False)
+    genres = db.Column("genres", db.ARRAY(db.String()), nullable=True)
     website = db.Column(db.String(500))
     seeking_talent = db.Column(db.Boolean, default=False)
     seeking_description = db.Column(db.String(120))
@@ -73,7 +74,7 @@ class Artist(db.Model):
     city = db.Column(db.String(120))
     state = db.Column(db.String(120))
     phone = db.Column(db.String(120))
-    genres = db.Column("genres", db.ARRAY(db.String()), nullable=False)
+    genres = db.Column("genres", db.ARRAY(db.String()), nullable=True)
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
     website = db.Column(db.String(500))
@@ -92,20 +93,13 @@ class Show(db.Model):
     __tablename__ = 'Show'
 
     id = db.Column(db.Integer, primary_key=True)
-    artist_id = db.Column(db.Integer, db.ForeignKey('Artist.id'), nullable=False)
-    venue_id = db.Column(db.Integer, db.ForeignKey('Venue.id'), nullable=False)
-    start_time = db.Column(db.DateTime, nullable=False)
+    artist_id = db.Column(db.Integer, db.ForeignKey('Artist.id'), nullable=True)
+    venue_id = db.Column(db.Integer, db.ForeignKey('Venue.id'), nullable=True)
+    start_time = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         return f'<Show {self.id}, Artist {self.artist_id}, Artist {self.image_link}, Venue {self.venue_id}>'
 
-# class Genre (Didn't use it at the end)
-#----------------------------------------------------------------------------#
-''' class Genre(db.Model):
-    __tablename__ = 'genre'
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String) '''
 
 #----------------------------------------------------------------------------#
 # Filters.
@@ -391,6 +385,7 @@ def edit_artist(artist_id):
   form.state.process_data(artist.state)
   form.genres.process_data(artist.genres)
   form.facebook_link.process_data(artist.facebook_link)
+  form.website.process_data(artist.website)
   form.image_link.process_data(artist.image_link)
 
   return render_template('forms/edit_artist.html', form=form, artist=artist)
@@ -405,6 +400,7 @@ def edit_artist_submission(artist_id):
       artist.phone = request.form['phone']
       artist.genres = request.form.getlist('genres')
       artist.facebook_link = request.form['facebook_link']
+      artist.website = request.form['website']
       artist.image_link = request.form['image_link']
 
       db.session.commit()
@@ -477,6 +473,7 @@ def create_artist_submission():
       phone=request.form['phone'],
       genres=request.form['genres'],
       facebook_link=request.form['facebook_link'],
+      website=request.form['website'],
       image_link=request.form['image_link']
   )
 
@@ -583,3 +580,4 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
 '''
+
