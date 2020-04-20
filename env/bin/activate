@@ -28,7 +28,7 @@ deactivate () {
     fi
 
     unset VIRTUAL_ENV
-    if [ ! "$1" = "nondestructive" ] ; then
+    if [ ! "${1:-}" = "nondestructive" ] ; then
     # Self destruct!
         unset -f deactivate
     fi
@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/hem/samuel.jimenez@sanabria.se/programming/_udacity2020/FSND2020/2. SQL and Data Modeling/8. Project Fyyur/starter_code/env"
+VIRTUAL_ENV="/Users/samuel/Google Drive/programming/_udacity2020/FSND2020/6. Capstone Project/world_music/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

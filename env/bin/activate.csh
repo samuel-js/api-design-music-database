@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/Users/hem/samuel.jimenez@sanabria.se/programming/_udacity2020/FSND2020/2. SQL and Data Modeling/8. Project Fyyur/starter_code/env"
+setenv VIRTUAL_ENV "/Users/samuel/Google Drive/programming/_udacity2020/FSND2020/6. Capstone Project/world_music/env"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
