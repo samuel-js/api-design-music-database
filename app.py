@@ -1,4 +1,3 @@
-
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
@@ -9,7 +8,7 @@ from flask import Flask, request, Response, jsonify, abort, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 from auth import requires_auth, AuthError
-from models import setup_db, Record, Artist
+from models import setup_db, db, Record, Artist
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -27,6 +26,10 @@ def create_app(test_config=None):
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,true')
         response.headers.add('Access-Control-Allow-Methods', 'GET,PATCH,POST,DELETE,OPTIONS')
         return response
+
+#----------------------------------------------------------------------------#
+   
+#----------------------------------------------------------------------------#
 
 #----------------------------------------------------------------------------#
 # Controllers.
