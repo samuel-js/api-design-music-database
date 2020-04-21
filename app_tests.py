@@ -2,8 +2,7 @@ import os
 import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
-from dotenv import load_dotenv
-load_dotenv(verbose=False)
+
 from app import create_app
 from models import setup_db, Record, Artist
 
@@ -13,19 +12,19 @@ class ApiTestCase(unittest.TestCase):
 
     def setUp(self):
         """Define test variables and initialize app."""
-        self.token_manager = os.getenv('TOKEN_MANAGER')   
+        self.token_manager = os.environ['token_manager']
+        #self.token_editor = os.environ['editor_token']
+        #self.token_visitor = os.environ['visitor_token']  
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "wmd_test"
         self.database_path = "postgres://{}:{}@{}/{}".format('postgres', '','localhost:5432', self.database_name)
-        #self.headers = {'Authorization': f'Bearer {os.getenv("TOKEN_MANAGER")}'}
         setup_db(self.app, self.database_path)
 
         # binds the app to the current context
         with self.app.app_context():
             self.db = SQLAlchemy()
             self.db.init_app(self.app)
-            # create all tables
             self.db.create_all()
     
     def tearDown(self):
