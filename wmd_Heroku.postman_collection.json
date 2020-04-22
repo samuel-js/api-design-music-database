@@ -1,0 +1,1127 @@
+{
+	"info": {
+		"_postman_id": "bc720d0f-2421-47a4-bc8a-89ff87747660",
+		"name": "wmd Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Access Site",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Access Site",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 20:59:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": " Success! right on the API track sir :-)                 Welcome to the worlds biggest music database."
+				}
+			]
+		},
+		{
+			"name": "Get Records",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/records",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Records",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/records",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:00:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3136"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"records\": [\n        {\n            \"artist_id\": 1,\n            \"id\": 1,\n            \"image_link\": \"http://www.website.com/record/1\",\n            \"isbn\": \"666666\",\n            \"name\": \"Record 1\"\n        },\n        {\n            \"artist_id\": 2,\n            \"id\": 2,\n            \"image_link\": \"http://www.website.com/record/2\",\n            \"isbn\": \"666667\",\n            \"name\": \"Record 2\"\n        },\n        {\n            \"artist_id\": 3,\n            \"id\": 3,\n            \"image_link\": \"http://www.website.com/record/3\",\n            \"isbn\": \"666668\",\n            \"name\": \"Record 3\"\n        },\n        {\n            \"artist_id\": 4,\n            \"id\": 4,\n            \"image_link\": \"http://www.website.com/record/4\",\n            \"isbn\": \"666669\",\n            \"name\": \"Record 4\"\n        },\n        {\n            \"artist_id\": 5,\n            \"id\": 5,\n            \"image_link\": \"http://www.website.com/record/5\",\n            \"isbn\": \"666670\",\n            \"name\": \"Record 5\"\n        },\n        {\n            \"artist_id\": 6,\n            \"id\": 6,\n            \"image_link\": \"http://www.website.com/record/6\",\n            \"isbn\": \"666671\",\n            \"name\": \"Record 6\"\n        },\n        {\n            \"artist_id\": 7,\n            \"id\": 7,\n            \"image_link\": \"http://www.website.com/record/7\",\n            \"isbn\": \"666672\",\n            \"name\": \"Record 7\"\n        },\n        {\n            \"artist_id\": 8,\n            \"id\": 8,\n            \"image_link\": \"http://www.website.com/record/8\",\n            \"isbn\": \"666673\",\n            \"name\": \"Record 8\"\n        },\n        {\n            \"artist_id\": 9,\n            \"id\": 9,\n            \"image_link\": \"http://www.website.com/record/9\",\n            \"isbn\": \"666674\",\n            \"name\": \"Record 9\"\n        },\n        {\n            \"artist_id\": 10,\n            \"id\": 10,\n            \"image_link\": \"http://www.website.com/record/10\",\n            \"isbn\": \"666675\",\n            \"name\": \"Record 10\"\n        },\n        {\n            \"artist_id\": 11,\n            \"id\": 11,\n            \"image_link\": \"http://www.website.com/record/11\",\n            \"isbn\": \"666676\",\n            \"name\": \"Record 11\"\n        },\n        {\n            \"artist_id\": 12,\n            \"id\": 12,\n            \"image_link\": \"http://www.website.com/record/12\",\n            \"isbn\": \"666677\",\n            \"name\": \"Record 12\"\n        },\n        {\n            \"artist_id\": 13,\n            \"id\": 13,\n            \"image_link\": \"http://www.website.com/record/13\",\n            \"isbn\": \"666678\",\n            \"name\": \"Record 13\"\n        },\n        {\n            \"artist_id\": 14,\n            \"id\": 14,\n            \"image_link\": \"http://www.website.com/record/14\",\n            \"isbn\": \"666679\",\n            \"name\": \"Record 14\"\n        },\n        {\n            \"artist_id\": 15,\n            \"id\": 15,\n            \"image_link\": \"http://www.website.com/record/15\",\n            \"isbn\": \"666680\",\n            \"name\": \"Record 15\"\n        },\n        {\n            \"artist_id\": 16,\n            \"id\": 16,\n            \"image_link\": \"http://www.website.com/record/16\",\n            \"isbn\": \"666681\",\n            \"name\": \"Record 16\"\n        },\n        {\n            \"artist_id\": 17,\n            \"id\": 17,\n            \"image_link\": \"http://www.website.com/record/17\",\n            \"isbn\": \"666682\",\n            \"name\": \"Record 17\"\n        },\n        {\n            \"artist_id\": 18,\n            \"id\": 18,\n            \"image_link\": \"http://www.website.com/record/18\",\n            \"isbn\": \"666683\",\n            \"name\": \"Record 18\"\n        },\n        {\n            \"artist_id\": 19,\n            \"id\": 19,\n            \"image_link\": \"http://www.website.com/record/19\",\n            \"isbn\": \"666684\",\n            \"name\": \"Record 19\"\n        },\n        {\n            \"artist_id\": 20,\n            \"id\": 20,\n            \"image_link\": \"http://www.website.com/record/20\",\n            \"isbn\": \"666685\",\n            \"name\": \"Record 20\"\n        },\n        {\n            \"artist_id\": 21,\n            \"id\": 21,\n            \"image_link\": \"http://www.website.com/record/21\",\n            \"isbn\": \"666686\",\n            \"name\": \"Record 21\"\n        },\n        {\n            \"artist_id\": 22,\n            \"id\": 22,\n            \"image_link\": \"http://www.website.com/record/22\",\n            \"isbn\": \"666687\",\n            \"name\": \"Record 22\"\n        },\n        {\n            \"artist_id\": 23,\n            \"id\": 23,\n            \"image_link\": \"http://www.website.com/record/23\",\n            \"isbn\": \"666688\",\n            \"name\": \"Record 23\"\n        },\n        {\n            \"artist_id\": 24,\n            \"id\": 24,\n            \"image_link\": \"http://www.website.com/record/24\",\n            \"isbn\": \"666689\",\n            \"name\": \"Record 24\"\n        },\n        {\n            \"artist_id\": 25,\n            \"id\": 25,\n            \"image_link\": \"http://www.website.com/record/25\",\n            \"isbn\": \"666690\",\n            \"name\": \"Record 25\"\n        },\n        {\n            \"artist_id\": 26,\n            \"id\": 26,\n            \"image_link\": \"http://www.website.com/record/26\",\n            \"isbn\": \"666691\",\n            \"name\": \"Record 26\"\n        },\n        {\n            \"artist_id\": 27,\n            \"id\": 27,\n            \"image_link\": \"http://www.website.com/record/27\",\n            \"isbn\": \"666692\",\n            \"name\": \"Record 27\"\n        },\n        {\n            \"artist_id\": 28,\n            \"id\": 28,\n            \"image_link\": \"http://www.website.com/record/28\",\n            \"isbn\": \"666693\",\n            \"name\": \"Record 28\"\n        },\n        {\n            \"artist_id\": 29,\n            \"id\": 29,\n            \"image_link\": \"http://www.website.com/record/29\",\n            \"isbn\": \"666694\",\n            \"name\": \"Record 29\"\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "Get Records - Token expired",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/records",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"records"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "127"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.2 Python/3.7.6"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Apr 2020 15:28:32 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": {\n        \"code\": \"token_expired\",\n        \"description\": \"Token expired.\"\n    },\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Record Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/records/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"records",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Record Details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/records/1",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:00:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"record\": [\n        {\n            \"artist_id\": 1,\n            \"id\": 1,\n            \"image_link\": \"http://www.website.com/record/1\",\n            \"isbn\": \"666666\",\n            \"name\": \"Record 1\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Artists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/artists",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"artists"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Artists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/artists",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:01:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2246"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"artists\": [\n        {\n            \"id\": 1,\n            \"image_link\": \"http://www.website.com/artist/1\",\n            \"name\": \"Artist 1\"\n        },\n        {\n            \"id\": 2,\n            \"image_link\": \"http://www.website.com/artist/2\",\n            \"name\": \"Artist 2\"\n        },\n        {\n            \"id\": 3,\n            \"image_link\": \"http://www.website.com/artist/3\",\n            \"name\": \"Artist 3\"\n        },\n        {\n            \"id\": 4,\n            \"image_link\": \"http://www.website.com/artist/4\",\n            \"name\": \"Artist 4\"\n        },\n        {\n            \"id\": 5,\n            \"image_link\": \"http://www.website.com/artist/5\",\n            \"name\": \"Artist 5\"\n        },\n        {\n            \"id\": 6,\n            \"image_link\": \"http://www.website.com/artist/6\",\n            \"name\": \"Artist 6\"\n        },\n        {\n            \"id\": 7,\n            \"image_link\": \"http://www.website.com/artist/7\",\n            \"name\": \"Artist 7\"\n        },\n        {\n            \"id\": 8,\n            \"image_link\": \"http://www.website.com/artist/8\",\n            \"name\": \"Artist 8\"\n        },\n        {\n            \"id\": 9,\n            \"image_link\": \"http://www.website.com/artist/9\",\n            \"name\": \"Artist 9\"\n        },\n        {\n            \"id\": 10,\n            \"image_link\": \"http://www.website.com/artist/10\",\n            \"name\": \"Artist 10\"\n        },\n        {\n            \"id\": 11,\n            \"image_link\": \"http://www.website.com/artist/11\",\n            \"name\": \"Artist 11\"\n        },\n        {\n            \"id\": 12,\n            \"image_link\": \"http://www.website.com/artist/12\",\n            \"name\": \"Artist 12\"\n        },\n        {\n            \"id\": 13,\n            \"image_link\": \"http://www.website.com/artist/13\",\n            \"name\": \"Artist 13\"\n        },\n        {\n            \"id\": 14,\n            \"image_link\": \"http://www.website.com/artist/14\",\n            \"name\": \"Artist 14\"\n        },\n        {\n            \"id\": 15,\n            \"image_link\": \"http://www.website.com/artist/15\",\n            \"name\": \"Artist 15\"\n        },\n        {\n            \"id\": 16,\n            \"image_link\": \"http://www.website.com/artist/16\",\n            \"name\": \"Artist 16\"\n        },\n        {\n            \"id\": 17,\n            \"image_link\": \"http://www.website.com/artist/17\",\n            \"name\": \"Artist 17\"\n        },\n        {\n            \"id\": 18,\n            \"image_link\": \"http://www.website.com/artist/18\",\n            \"name\": \"Artist 18\"\n        },\n        {\n            \"id\": 19,\n            \"image_link\": \"http://www.website.com/artist/19\",\n            \"name\": \"Artist 19\"\n        },\n        {\n            \"id\": 20,\n            \"image_link\": \"http://www.website.com/artist/20\",\n            \"name\": \"Artist 20\"\n        },\n        {\n            \"id\": 21,\n            \"image_link\": \"http://www.website.com/artist/21\",\n            \"name\": \"Artist 21\"\n        },\n        {\n            \"id\": 22,\n            \"image_link\": \"http://www.website.com/artist/22\",\n            \"name\": \"Artist 22\"\n        },\n        {\n            \"id\": 23,\n            \"image_link\": \"http://www.website.com/artist/23\",\n            \"name\": \"Artist 23\"\n        },\n        {\n            \"id\": 24,\n            \"image_link\": \"http://www.website.com/artist/24\",\n            \"name\": \"Artist 24\"\n        },\n        {\n            \"id\": 25,\n            \"image_link\": \"http://www.website.com/artist/25\",\n            \"name\": \"Artist 25\"\n        },\n        {\n            \"id\": 26,\n            \"image_link\": \"http://www.website.com/artist/26\",\n            \"name\": \"Artist 26\"\n        },\n        {\n            \"id\": 27,\n            \"image_link\": \"http://www.website.com/artist/27\",\n            \"name\": \"Artist 27\"\n        },\n        {\n            \"id\": 28,\n            \"image_link\": \"http://www.website.com/artist/28\",\n            \"name\": \"Artist 28\"\n        },\n        {\n            \"id\": 29,\n            \"image_link\": \"http://www.website.com/artist/29\",\n            \"name\": \"Artist 29\"\n        }\n    ],\n    \"code\": 200,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Artist Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/artists/1",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"artists",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Artist Details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/artists/1",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"artists",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:01:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"artist\": [\n        {\n            \"id\": 1,\n            \"image_link\": \"http://www.website.com/artist/1\",\n            \"name\": \"Artist 1\"\n        }\n    ],\n    \"code\": 200,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Post Records",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"artist_id\": 1, \n      \"id\": null, \n      \"image_link\": \"https://image.jpg\", \n      \"isbn\": \"09876\", \n      \"name\": \"RecordName\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/records",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post Records",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"artist_id\": 29,\n            \"id\": 29,\n            \"image_link\": \"http://www.website.com/record/29\",\n            \"isbn\": \"666694\",\n            \"name\": \"Record 29\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/records",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:25:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "147"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"record\": [\n        {\n            \"artist_id\": 29,\n            \"id\": 29,\n            \"image_link\": \"http://www.website.com/record/29\",\n            \"isbn\": \"666694\",\n            \"name\": \"Record 29\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Post Artists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"id\": null, \n      \"image_link\": \"https://i.pinimg.com/originals/8d/f1/47/8df147ce9febbab93606a88787e91e2e.jpg\", \n      \"name\": \"ArtistName\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/artists",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"artists"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post Artists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"id\": 30,\n            \"image_link\": \"http://www.website.com/artist/30\",\n            \"name\": \"Artist 30\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/artists",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:03:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "116"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"artist\": [\n        {\n            \"id\": 30,\n            \"image_link\": \"http://www.website.com/artist/30\",\n            \"name\": \"Artist 30\"\n        }\n    ],\n    \"code\": 200,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Patch Records",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"artist_id\": 1,\n      \"id\": 25,\n      \"image_link\": \"https://images-na.ssl-images-amazon.com/images/I/81vo8MINjUL._SL1500_.jpg\",\n      \"isbn\": \"098765\",\n      \"name\": \"RecordName\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/records/25",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"records",
+						"25"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Patch Records",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n        {\n            \"artist_id\": 29,\n            \"id\": 29,\n            \"image_link\": \"http://www.website.com/record/29\",\n            \"isbn\": \"666694\",\n            \"name\": \"Record 29 Edited\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/records/29",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records",
+								"29"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:26:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "152"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"record\": {\n        \"artist_id\": 29,\n        \"id\": 29,\n        \"image_link\": \"http://www.website.com/record/29\",\n        \"isbn\": \"666694\",\n        \"name\": \"Record 29 Edited\"\n    },\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Patch Artists",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"id\": 25,\n      \"image_link\": \"https://i.pinimg.com/originals/8d/f1/47/8df147ce9febbab93606a88787e91e2e.jpg\",\n      \"name\": \"ArtistNamePatched\"\n    }\n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/artists/25",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"artists",
+						"25"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Patch Artists",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"id\": 30,\n            \"image_link\": \"http://www.website.com/artist/30\",\n            \"name\": \"Artist 30 Edited\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/artists/30",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"artists",
+								"30"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:04:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"artist\": [\n        {\n            \"id\": 30,\n            \"image_link\": \"http://www.website.com/artist/30\",\n            \"name\": \"Artist 30 Edited\"\n        }\n    ],\n    \"code\": 200,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Records ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/records/25",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"records",
+						"25"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Records ",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/records/29",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records",
+								"29"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:06:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"record_id\": 29,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Artists",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://world-music-database.herokuapp.com/artists/25",
+					"protocol": "https",
+					"host": [
+						"world-music-database",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"artists",
+						"25"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Artists",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://world-music-database.herokuapp.com/artists/30",
+							"protocol": "https",
+							"host": [
+								"world-music-database",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"artists",
+								"30"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Apr 2020 21:05:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type,Authorization,true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PATCH,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"artist_id\": 30,\n    \"code\": 200,\n    \"success\": true\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9EZ3hOVEkwTXpKRE5FRTFRVVpFUVRnM01qZ3pNRFk0UXpJeU1VWkNRalkwUXpFd1JrSTNNZyJ9.eyJpc3MiOiJodHRwczovL3NhbmFicmlhLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTRhZWM2NjVkOGVhMTEwYzUwMTE5OGQiLCJhdWQiOiJ3bWQtYXBpIiwiaWF0IjoxNTg3NTgzOTM3LCJleHAiOjE1ODc1OTExMzcsImF6cCI6ImdjU1owN3VkVmJ4SkhwdlFCdmt6cU9kcGtJOWlrNk9sIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJhY2Nlc3M6c2l0ZSIsImRlbGV0ZTphcnRpc3RzIiwiZGVsZXRlOnJlY29yZHMiLCJnZXQ6YXJ0aXN0LWRldGFpbHMiLCJnZXQ6YXJ0aXN0cyIsImdldDpyZWNvcmQtZGV0YWlscyIsImdldDpyZWNvcmRzIiwicGF0Y2g6YXJ0aXN0cyIsInBhdGNoOnJlY29yZHMiLCJwb3N0OmFydGlzdHMiLCJwb3N0OnJlY29yZHMiXX0.a751E1zVl0hi-VjucovSGGTMrlqfwAN3H8KfBia3XOLe76uA7QT-m6ig3AB34bg68wtbUClk41YS4bwniURt0XZp2spXJkrjGCMYvBtbf1Kq-6qBM4PDdOtXeAxG-zj0UDZBHmDvf9ilAXlFsTAkA4SdOGaW4sDg40r_hhEgg189Gk_hPxLYh08cZ-psg7YjnmKDh-ycB2riebQcIpJhbqlmNAuFPx99nHkPp5EulzGFas4Re2AfhI8iIaAU5XDx6fnSpcDw5nXmHnNb0at4gW5Bnhq6J8Pt_95m-lXOoOyKwJKN-3jsl3AH9MO0fzQVw0108gfFrdqRhSFryk_yXg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ea87100c-6773-497f-b6b8-a1b11e658415",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c5df4290-94a8-4bfa-96d1-6b8a412e8d68",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
