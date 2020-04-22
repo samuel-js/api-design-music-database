@@ -1,3 +1,15 @@
+# Code References:
+  # Auth0 user forum: https://community.auth0.com/t/tokens-keep-expiring-jst-after-a-few-hours/41534
+  # API Testing serie: https://www.linkedin.com/learning/api-testing-foundations/next-steps
+  # Swagger docs: https://swagger.io/docs/specification/about/
+  # Postman docs: https://learning.postman.com/docs/postman/api-documentation/documenting-your-api/
+  # Flask API docs: https://tedboy.github.io/flask/generated/generated/flask.Request.get_json.html
+  # Udacity Student HUB
+    # User https://github.com/mohammadmujib/capstone
+    # User https://github.com/maximilianmessing/fsnd_capstone
+    # User https://github.com/Mostafa95/capstone
+    # User https://github.com/pcidale/FSND-capstone
+  # Tree : https://rschu.me/list-a-directory-with-tree-command-on-mac-os-x-3b2d4c4a4827
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
@@ -139,7 +151,6 @@ def create_app(test_config=None):
             'code': 200
         })
         
-
     #  Artists
     #----------------------------------------------------------------------------#
 
