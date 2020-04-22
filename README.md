@@ -1,11 +1,11 @@
 
-# Casting Agency API
+# Introduction
 
 This project is an API tha works as a backend for a music databse. The database is very simple and have only two tables: Records and Artists. Throug the API you can consult the database, create, edit and delete records. There is an almost ready front end developed but I won't publish it until it's fully working. The only part that is left to implement is the authorization in the front end, which is taking to long to put in place. I'll update this repo whe it's finished.
 
 ## Deployment
-This app is deployed on heruko under this [link](/).
-
+This app is deployed and hosted at Heroku [here](https://world-music-database.herokuapp.com/).
+ 
 ## Getting Started
 
 ### Installing Dependencies
@@ -48,21 +48,16 @@ export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run 
 ```
-- `setup.sh` sets some environment variables used by the app.
-- Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
-- Setting the `FLASK_APP` variable to `app.py` directs flask to use this file to find the application.
 
 ## API Reference
-
-### Getting Started
-
-- Base URL: You can run this API locally at the default `http://127.0.0.1:5000/`
-- Authentication: This app has 3 users. Each has his own token which are provided in `setup.sh` file. Details about each user privlages are provided below.
+- Authentication: This app has 3 users, two with permissions and one without permissions. Tokens are provided in `setup.sh` file. Details about each user privlages are provided below.
 
 ### Users
-This app has 3 users. each user has his own privileges.
+This app has 3 users, each user has his own privileges.
 - Manager
-	- Permissions to all endpoints includind deleting records
+  - Permissions to all endpoints including deleting entries from the database
+  -delete:artists		
+  -delete:records
 - Editor
   - get:artist-details	
   - get:artists		
@@ -73,13 +68,9 @@ This app has 3 users. each user has his own privileges.
   - post:artists		
   - post:records	
 - Visitor
-	- Permision only to vitit the base url
+	- Permision only to vitit the base url https://world-music-database.herokuapp.com
 
 ### Endpoints
-## Link to Postman Documentation
-Endpoint routes and examples can be found here:
-[Postman Documentation](https://documenter.getpostman.com/view/10357939/Szf6YUHZ)
-To test the endpoints, you must send the request with user access token in Authorization header, which are provided in `setup.sh`.
 
 - GET '/Records'
 - GET '/Artists'
@@ -89,6 +80,12 @@ To test the endpoints, you must send the request with user access token in Autho
 - PATCH '/Artists/<int:id>'
 - DELETE '/Records/<int:id>'
 - DELETE '/Artists/<int:id>'
+
+## Link to Postman Documentation
+Endpoint routes and examples can be found here:
+[Postman Documentation](https://documenter.getpostman.com/view/10357939/Szf9VSUr)
+
+To test the endpoints, you must send the request with user access token in Authorization header, which are provided in `setup.sh`. If the token expires, new tokens can be obtained for the "Editor" roll at the [Authorization page](https://sanabria.eu.auth0.com/authorize?audience=wmd-api&response_type=token&client_id=gcSZ07udVbxJHpvQBvkzqOdpkI9ik6Ol&redirect_uri=https://world-music-database.herokuapp.com)
 
 ## Testing
 To run the tests, run
