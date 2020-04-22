@@ -30,7 +30,7 @@ def create_app(test_config=None):
     app = Flask(__name__)
     # Cors app
     setup_db(app)
-    cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+    cors = CORS(app) ## [ , resources={r"/api/*": {"origins": "*"}}) ]
 
     # CORS Headers 
     @app.after_request
@@ -44,7 +44,7 @@ def create_app(test_config=None):
 #----------------------------------------------------------------------------#
 
     @app.route('/')
-    @cross_origin()
+    #@cross_origin()
     def index():    
         return (""" Success! right on the API track sir :-) \
                 Welcome to the worlds biggest music database.""")
@@ -54,7 +54,6 @@ def create_app(test_config=None):
     #----------------------------------------------------------------------------#
 
     @app.route('/records', methods=['GET'])
-    @cross_origin()
     @requires_auth('get:records')
 
     def records(payload):
