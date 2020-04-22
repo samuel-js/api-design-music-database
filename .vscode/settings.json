@@ -1,7 +1,0 @@
-{
-    "python.linting.pylintEnabled": true,
-    "python.linting.flake8Enabled": false,
-    "python.linting.enabled": true,
-    "python.pythonPath": "/Users/samuel/Google Drive/programming/_udacity2020/FSND2020/6. Capstone Project/world_music/env/bin/python3",
-    "editor.fontFamily": "Hack"
-}
