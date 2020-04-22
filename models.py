@@ -7,7 +7,6 @@ import json
 database_name = "wmd"
 #database_path = 'postgres://postgres@localhost:5432/wmd'
 database_path = 'postgres://abaqafjqjpygxw:6278eb22c84c9488c044a2727ec4a530bd8bb6cee5cf100913c6380c21ce256b@ec2-52-201-55-4.compute-1.amazonaws.com:5432/d2efim24lu0f1q'
-
 #database_path = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()
