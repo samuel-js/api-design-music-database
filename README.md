@@ -22,23 +22,6 @@ pip install -r requirements.txt
 ```
 This will install all of the required packages we selected within the `requirements.txt` file.
 
-### Understanding the project's structure
-```
-├── Procfile
-├── README.md
-├── app.py
-├── app_tests.py
-├── auth.py
-├── config.py
-├── error.log
-├── fabfile.py
-├── manage.py
-├── migrations
-├── models.py
-├── requirements.txt
-├── setup.sh
-└── wmd_test.sql"
-```
 
 ## Running the server
 To run the server, execute:
