@@ -99,5 +99,3 @@ psql wmd_test < wmd_test.sql
 python test_app.py
 ```
 
-## Deployment
-This app is deployed on heruko under this [link](/).
