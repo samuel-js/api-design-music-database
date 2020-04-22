@@ -1,61 +1,53 @@
 
 # Casting Agency API
 
-This project is my first step to a fully developed web application following `Udacity Fullstack Developer Nanodegree` guidelines. It's a web app for a casting agency where users can add movies, actors, and relate each actor to the movies he acted in, and vice versa. This project uses python, flask and postgresql for it's backend and hosted on heruko. 
-
-All backend code follows [PEP8 style guidelines](https://www.python.org/dev/peps/pep-0008/)
-
-No frontend is developed for this app, you can use it using cURL or [Postman](https://www.postman.com)
-
+This project is an API tha works as a backend for a music databse. The database is very simple and have only two tables: Records and Artists. Throug the API you can consult the database, create, edit and delete records. There is an almost ready front end developed but I won't publish it until it's fully working. The only part that is left to implement is the authorization in the front end, which is taking to long to put in place. I'll update this repo whe it's finished.
 
 ## Getting Started
 
 ### Installing Dependencies
 
 #### Python 3.7
-
 Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
-
-
 #### Virtual Enviornment
-
 I recommend working within a virtual environment whenever using Python for projects. This keeps dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for the platform can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-
-
 #### PIP Dependencies
-
 Once you have your virtual environment setup and running, install dependencies by running:
 
 ```bash
 pip install -r requirements.txt
 ```
-
 This will install all of the required packages we selected within the `requirements.txt` file.
 
+### Understanding the project's structure
+```
+├── Procfile
+├── README.md
+├── app.py
+├── app_tests.py
+├── auth.py
+├── config.py
+├── error.log
+├── fabfile.py
+├── manage.py
+├── migrations
+├── models.py
+├── requirements.txt
+├── setup.sh
+└── wmd_test.sql"
+```
 
 ## Running the server
-
-first ensure you are working using your created virtual environment.
-
 To run the server, execute:
-
 ```bash
 source setup.sh
 export FLASK_APP=app.py
 export FLASK_ENV=development
-
-To run the app 
-  alt. 1: flask run (runs de server on port 5000)
-  alt. 2: python app.py (runs de server on port 8100)
-
-
+flask run 
 ```
-Sourcing `setup.sh` sets some environment variables used by the app.
-
-Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
-
-Setting the `FLASK_APP` variable to `app.py` directs flask to use the this file to find the application.
-
+- `setup.sh` sets some environment variables used by the app.
+- Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
+- Setting the `FLASK_APP` variable to `app.py` directs flask to use this file to find the application.
 
 ## API Reference
 
@@ -64,12 +56,27 @@ Setting the `FLASK_APP` variable to `app.py` directs flask to use the this file 
 - Base URL: You can run this API locally at the default `http://127.0.0.1:5000/`
 - Authentication: This app has 3 users. Each has his own token which are provided in `setup.sh` file. Details about each user privlages are provided below.
 
-### Endpoints
+### Users
+This app has 3 users. each user has his own privileges.
+- Manager
+	- Permissions to all endpoints includind deleting records
+- Editor
+  - get:artist-details	
+  - get:artists		
+  - get:record-details		
+  - get:records		
+  - patch:artists		
+  - patch:records		
+  - post:artists		
+  - post:records	
+- Visitor
+	- Permision only to vitit the base url
 
+### Endpoints
 ## Link to Postman Documentation
 Endpoint routes and examples can be found here:
 [Postman Documentation](https://documenter.getpostman.com/view/10357939/Szf6YUHZ)
-
+To test the endpoints, you must send the request with user access token in Authorization header, which are provided in `setup.sh`.
 
 - GET '/Records'
 - GET '/Artists'
@@ -80,39 +87,14 @@ Endpoint routes and examples can be found here:
 - DELETE '/Records/<int:id>'
 - DELETE '/Artists/<int:id>'
 
-### Users
-
-This app has 3 users. each user has his own privileges.
-
-- Manager
-	- Permissions to all endpoints
-
-- Editor
-	- access:site	access:site	
-  - get:artist-details	
-  - get:artists		
-  - get:record-details		
-  - get:records		
-  - patch:artists		
-  - patch:records		
-  - post:artists		
-  - post:records	
-
-- Visitor
-	- No permissions
-
-Please Note, to use any endpoint, you must send the request with user access token in Authorization header, which are provided in `setup.sh`.
-
-
 ## Testing
-
 To run the tests, run
 ```
-dropdb capstone_test
-createdb capstone_test
+dropdb wmd_test
+createdb wmd_test
+psql wmd_test < wmd_test.sql
 python test_app.py
 ```
 
 ## Deployment
-
-This app is deployed on heruko under this [link](https://capstone-fsnd-which-not-taken.herokuapp.com/).
+This app is deployed on heruko under this [link](/).
