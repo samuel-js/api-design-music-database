@@ -1,7 +1,7 @@
 
 # Introduction
 
-This project is an API tha works as a backend for a music databse. The database is very simple and have only two tables: Records and Artists. Throug the API you can consult the database, create, edit and delete records. There is an almost ready front end developed but I won't publish it until it's fully working. The only part that is left to implement is the authorization in the front end, which is taking to long to put in place. I'll update this repo whe it's finished.
+This project is an API that works as a backend for a music databse. The database is very simple and have only two tables: Records and Artists. Throug the API you can consult the database, create, edit and delete records. There is an almost ready front end developed but I won't publish it until it's fully working. The only part that is left to implement is the authorization in the front end, which is taking to long to put in place. I'll update this repo whe it's finished.
 
 ## Deployment
 This app is deployed and hosted at Heroku [here](https://world-music-database.herokuapp.com/).
@@ -86,6 +86,8 @@ Endpoint routes and examples can be found here:
 [Postman Documentation](https://documenter.getpostman.com/view/10357939/Szf9VSUr)
 
 To test the endpoints, you must send the request with user access token in Authorization header, which are provided in `setup.sh`. If the token expires, new tokens can be obtained for the "Editor" roll at the [Authorization page](https://sanabria.eu.auth0.com/authorize?audience=wmd-api&response_type=token&client_id=gcSZ07udVbxJHpvQBvkzqOdpkI9ik6Ol&redirect_uri=https://world-music-database.herokuapp.com)
+
+A postman collection is also provided in the repository with everything setup.
 
 ## Testing
 To run the tests, run
