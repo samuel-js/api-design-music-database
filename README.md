@@ -3,6 +3,9 @@
 
 This project is an API tha works as a backend for a music databse. The database is very simple and have only two tables: Records and Artists. Throug the API you can consult the database, create, edit and delete records. There is an almost ready front end developed but I won't publish it until it's fully working. The only part that is left to implement is the authorization in the front end, which is taking to long to put in place. I'll update this repo whe it's finished.
 
+## Deployment
+This app is deployed on heruko under this [link](/).
+
 ## Getting Started
 
 ### Installing Dependencies
