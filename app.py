@@ -54,6 +54,7 @@ def create_app(test_config=None):
     #----------------------------------------------------------------------------#
 
     @app.route('/records', methods=['GET'])
+    @cross_origin()
     @requires_auth('get:records')
 
     def records(payload):
