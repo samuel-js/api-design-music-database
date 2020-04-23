@@ -233,15 +233,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/records/1",
-					"protocol": "http",
+					"raw": "https://world-music-database.herokuapp.com/records/1",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"world-music-database",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"records",
 						"1"
